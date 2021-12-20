@@ -1,0 +1,39 @@
+[
+  {
+    "employee": {
+      "id": "d7118353-1479-42fe-825b-735ec26dbd37",
+      "name": "Админ",
+      "date_of_birth": "Sep 21, 1999 12:00:00 AM",
+      "passport_number": "0415000000",
+      "contracts": [],
+      "active_orders": []
+    },
+    "is_admin": true
+  },
+  {
+    "employee": {
+      "id": "a998c30a-5815-48fe-880d-7d2f1afc5e22",
+      "name": "Работник",
+      "date_of_birth": "Dec 12, 1988 12:00:00 AM",
+      "passport_number": "1212233344",
+      "contracts": [
+        {
+          "date": "Dec 19, 2021 11:56:16 PM",
+          "client_id": "1111",
+          "employee_id": "a998c30a-5815-48fe-880d-7d2f1afc5e22",
+          "service_price": 100000.0,
+          "percent_to_company": 10.0,
+          "apartment_id": "66ee7296-1641-4b00-aa59-310cc93dce1a"
+        }
+      ],
+      "active_orders": [
+        {
+          "id": "c0b10975-345f-4314-aedb-0a8f04538479",
+          "client_passport_number": "1111",
+          "apartment_id": "66ee7296-1641-4b00-aa59-310cc93dce1a"
+        }
+      ]
+    },
+    "is_admin": false
+  }
+]

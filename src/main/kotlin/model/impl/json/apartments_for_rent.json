@@ -1,0 +1,97 @@
+[
+  {
+    "id": "203e554f-d4d2-4102-9ac3-203e69ac9637",
+    "area": 14.0,
+    "rooms": 2,
+    "address": {
+      "city": "Санкт-Петербург",
+      "street": "Кронверский проспект",
+      "house": "35",
+      "apartment_number": "199"
+    },
+    "price": 60000.0,
+    "has_furniture": true,
+    "repair_type": "BASIC_REPAIR",
+    "description": "Только славяне",
+    "busy_dates": [],
+    "only_long_term": true,
+    "can_children": true,
+    "can_pets": true
+  },
+  {
+    "id": "203e554f-d4d2-4102-9ac3-203e69ac963",
+    "area": 18.0,
+    "rooms": 2,
+    "address": {
+      "city": "Москва",
+      "street": "Арбат",
+      "house": "67",
+      "apartment_number": "11"
+    },
+    "price": 80000.0,
+    "has_furniture": true,
+    "repair_type": "BASIC_REPAIR",
+    "description": "Чистая квартира с хорошим видом",
+    "busy_dates": [],
+    "only_long_term": true,
+    "can_children": true,
+    "can_pets": false
+  },
+  {
+    "id": "203e554f-d4d2-4102-9ac3-203e69ac96",
+    "area": 10.0,
+    "rooms": 1,
+    "address": {
+      "city": "Москва",
+      "street": "Садовническая",
+      "house": "17",
+      "apartment_number": "179"
+    },
+    "price": 4000.0,
+    "has_furniture": true,
+    "repair_type": "BASIC_REPAIR",
+    "description": "Сдаем посуточно.",
+    "busy_dates": [],
+    "only_long_term": false,
+    "can_children": false,
+    "can_pets": false
+  },
+  {
+    "id": "203e554f-d4d2-4102-9ac3-203e69ac9",
+    "area": 56.0,
+    "rooms": 5,
+    "address": {
+      "city": "Москва",
+      "street": "Тверская",
+      "house": "10",
+      "apartment_number": "14"
+    },
+    "price": 12000.0,
+    "has_furniture": true,
+    "repair_type": "ELITE_REPAIR",
+    "description": "Только для культурного отдыха",
+    "busy_dates": [],
+    "only_long_term": false,
+    "can_children": true,
+    "can_pets": true
+  },
+  {
+    "id": "203e554f-d4d2-4102-9ac3-203e69ac",
+    "area": 33.0,
+    "rooms": 3,
+    "address": {
+      "city": "Краснодар",
+      "street": "Ленина",
+      "house": "57",
+      "apartment_number": "789"
+    },
+    "price": 40000.0,
+    "has_furniture": true,
+    "repair_type": "BASIC_REPAIR",
+    "description": "Хорошая квартира для всей семьи",
+    "busy_dates": [],
+    "only_long_term": true,
+    "can_children": true,
+    "can_pets": true
+  }
+]
