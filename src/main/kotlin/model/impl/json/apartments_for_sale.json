@@ -1,20 +1,5 @@
 [
   {
-    "id": "66ee7296-1641-4b00-aa59-310cc93dce1a",
-    "area": 20.0,
-    "rooms": 3,
-    "address": {
-      "city": "Ачинск",
-      "street": "9 мая",
-      "house": "23",
-      "apartment_number": "122"
-    },
-    "price": 3000000.0,
-    "has_furniture": true,
-    "repair_type": "BASIC_REPAIR",
-    "description": "Хорошая квартира"
-  },
-  {
     "id": "66ee7296-1641-4b00-aa59-310cc93dce",
     "area": 25.0,
     "rooms": 4,
@@ -24,14 +9,14 @@
       "house": "13",
       "apartment_number": "1"
     },
-    "price": 10000000.0,
+    "price": 1.0E7,
     "has_furniture": true,
     "repair_type": "BASIC_REPAIR",
     "description": "В 5 минутах от центра города"
   },
   {
     "id": "66ee7296-1641-4b00-aa59-310cc93dc",
-    "area": 10,
+    "area": 10.0,
     "rooms": 1,
     "address": {
       "city": "Санкт-Петербург",
@@ -54,14 +39,14 @@
       "house": "14",
       "apartment_number": "45"
     },
-    "price": 15000000.0,
+    "price": 1.5E7,
     "has_furniture": true,
     "repair_type": "BASIC_REPAIR",
     "description": "Район тихий, соседи дружелюбные"
   },
   {
     "id": "66ee7296-1641-4b00-aa59-310cc93",
-    "area": 5,
+    "area": 5.0,
     "rooms": 1,
     "address": {
       "city": "Москва",

@@ -11,7 +11,7 @@ import java.io.FileWriter
 
 class JsonApartmentsForRentDatabaseImpl: ApartmentsForRentDatabase {
     private val gson = Gson()
-    private val filename = "D:\\Desktop\\LABS\\5ыуь\\UML\\Project\\ApartmentSystem\\src\\main\\kotlin\\model\\impl\\json\\apartments_for_rent.json"
+    private val filename = "/Users/ulyanaab/ITMO/UML/src/main/kotlin/model/impl/json/apartments_for_rent.json"
 
     companion object {
         private var INSTANCE: JsonApartmentsForRentDatabaseImpl? = null
@@ -55,12 +55,12 @@ class JsonApartmentsForRentDatabaseImpl: ApartmentsForRentDatabase {
         val apartment = apartments.find { it.id == id }
         if (apartment != null) {
             apartments.remove(apartment)
-            writeToFile(gson.toJson(apartments), false)
+            writeToFile(gson.toJson(apartments))
         }
     }
 
     override fun clear() {
-        writeToFile("", false)
+        writeToFile("")
     }
 
     override fun update(apartment: ApartmentForRent) {
@@ -69,7 +69,7 @@ class JsonApartmentsForRentDatabaseImpl: ApartmentsForRentDatabase {
         writeToFile(gson.toJson(data))
     }
 
-    private fun writeToFile(text: String, append: Boolean = true) {
+    private fun writeToFile(text: String, append: Boolean = false) {
         val writer = FileWriter(filename, append)
         writer.write(text)
         writer.close()

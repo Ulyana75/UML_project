@@ -26,6 +26,7 @@ fun auth(): Employee {
         try {
             employee = view.enter()
         } catch (e: ApartmentSystemException) {
+            println(e.message)
             continue
         }
     }
@@ -45,7 +46,8 @@ fun showMenu(): Int {
             "7-поиск квартиры для аренды\n" +
             "8-завершить заказ\n" +
             "9-добавить работника\n" +
-            "10-завершить работу с программой")
+            "10-забронировать квартиру\n" +
+            "11-завершить работу с программой")
     return readLine()!!.toInt()
 }
 
@@ -61,7 +63,8 @@ fun handleMenu(ans: Int, employee: Employee): Boolean {
         7 -> view.searchApartmentForRent()
         8 -> view.finishOrder(employee)
         9 -> view.createEmployee(employee)
-        10 -> return false
+        10 -> view.bookApartment()
+        11 -> return false
     }
     return true
 }

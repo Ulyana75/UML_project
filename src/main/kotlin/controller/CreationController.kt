@@ -53,7 +53,7 @@ interface CreationController {
     fun createOrder(
         employee: Employee,
         client: Client,
-        apartment: Apartment
+        apartment: Apartment? = null
     ): Order
 
     fun createContract(
@@ -61,6 +61,6 @@ interface CreationController {
         employee: Employee,
         servicePrice: Float,
         percentToCompany: Float,
-        apartment: Apartment
+        apartment: Apartment? = null
     ): Contract
 }

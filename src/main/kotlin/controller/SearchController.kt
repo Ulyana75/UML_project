@@ -7,6 +7,7 @@ interface SearchController {
     fun searchClientByPassportNumber(passportNumber: String): Client?
 
     fun searchApartmentForSale(
+        city: String? = null,
         areaMin: Float? = null,
         areaMax: Float? = null,
         roomsMin: Int? = null,
@@ -19,6 +20,7 @@ interface SearchController {
     ): List<ApartmentForSale>
 
     fun searchApartmentForRent(
+        city: String? = null,
         areaMin: Float? = null,
         areaMax: Float? = null,
         roomsMin: Int? = null,

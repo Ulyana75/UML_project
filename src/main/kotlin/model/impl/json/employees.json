@@ -1,10 +1,10 @@
 [
   {
     "employee": {
-      "id": "d7118353-1479-42fe-825b-735ec26dbd37",
+      "id": "b6307d84-5228-4439-b016-04fd2ccd617c",
       "name": "Админ",
-      "date_of_birth": "Sep 21, 1999 12:00:00 AM",
-      "passport_number": "0415000000",
+      "date_of_birth": "Sep 21, 1999, 12:00:00 AM",
+      "passport_number": "8888999999",
       "contracts": [],
       "active_orders": []
     },
@@ -12,25 +12,31 @@
   },
   {
     "employee": {
-      "id": "a998c30a-5815-48fe-880d-7d2f1afc5e22",
+      "id": "8e291692-d67c-4a00-9760-ae5979d67f69",
       "name": "Работник",
-      "date_of_birth": "Dec 12, 1988 12:00:00 AM",
-      "passport_number": "1212233344",
+      "date_of_birth": "Aug 23, 1988, 12:00:00 AM",
+      "passport_number": "3333222222",
       "contracts": [
         {
-          "date": "Dec 19, 2021 11:56:16 PM",
+          "date": "Dec 20, 2021, 5:16:49 PM",
           "client_id": "1111",
-          "employee_id": "a998c30a-5815-48fe-880d-7d2f1afc5e22",
-          "service_price": 100000.0,
-          "percent_to_company": 10.0,
+          "employee_id": "8e291692-d67c-4a00-9760-ae5979d67f69",
+          "service_price": 65000.0,
+          "percent_to_company": 7.0,
           "apartment_id": "66ee7296-1641-4b00-aa59-310cc93dce1a"
+        },
+        {
+          "date": "Dec 20, 2021, 5:28:09 PM",
+          "client_id": "2222",
+          "employee_id": "8e291692-d67c-4a00-9760-ae5979d67f69",
+          "service_price": 164363.42,
+          "percent_to_company": 15.882372
         }
       ],
       "active_orders": [
         {
-          "id": "c0b10975-345f-4314-aedb-0a8f04538479",
-          "client_passport_number": "1111",
-          "apartment_id": "66ee7296-1641-4b00-aa59-310cc93dce1a"
+          "id": "28ac8abe-dc95-4b90-89e4-4fa7a30cb9b1",
+          "client_passport_number": "2222"
         }
       ]
     },

@@ -10,5 +10,5 @@ data class Order(
     val clientPassportNumber: String,
 
     @SerializedName("apartment_id")
-    val apartmentId: String?
+    val apartmentId: String? = null
 )

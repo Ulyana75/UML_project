@@ -11,7 +11,7 @@ import java.io.FileWriter
 
 class JsonApartmentsForSaleDatabaseImpl: ApartmentsForSaleDatabase {
     private val gson = Gson()
-    private val filename = "D:\\Desktop\\LABS\\5ыуь\\UML\\Project\\ApartmentSystem\\src\\main\\kotlin\\model\\impl\\json\\apartments_for_sale.json"
+    private val filename = "/Users/ulyanaab/ITMO/UML/src/main/kotlin/model/impl/json/apartments_for_sale.json"
 
     companion object {
         private var INSTANCE: JsonApartmentsForSaleDatabaseImpl? = null

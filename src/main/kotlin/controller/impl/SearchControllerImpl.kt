@@ -30,6 +30,7 @@ class SearchControllerImpl: SearchController {
     }
 
     override fun searchApartmentForSale(
+        city: String?,
         areaMin: Float?,
         areaMax: Float?,
         roomsMin: Int?,
@@ -42,6 +43,7 @@ class SearchControllerImpl: SearchController {
         val apartments = apartmentsForSaleDatabase.getAll()
         return apartments.filter {
             (areaMin == null || it.area >= areaMin) &&
+                    (city == null || it.address.city == city) &&
                     (areaMax == null || it.area <= areaMax) &&
                     (roomsMin == null || it.rooms >= roomsMin) &&
                     (roomsMax == null || it.rooms <= roomsMax) &&
@@ -53,6 +55,7 @@ class SearchControllerImpl: SearchController {
     }
 
     override fun searchApartmentForRent(
+        city: String?,
         areaMin: Float?,
         areaMax: Float?,
         roomsMin: Int?,
@@ -69,6 +72,7 @@ class SearchControllerImpl: SearchController {
         val apartments = apartmentsForRentDatabase.getAll()
         return apartments.filter {
             (areaMin == null || it.area >= areaMin) &&
+                    (city == null || it.address.city == city) &&
                     (areaMax == null || it.area <= areaMax) &&
                     (roomsMin == null || it.rooms >= roomsMin) &&
                     (roomsMax == null || it.rooms <= roomsMax) &&

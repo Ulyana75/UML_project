@@ -68,9 +68,11 @@
     },
     "price": 12000.0,
     "has_furniture": true,
-    "repair_type": "ELITE_REPAIR",
     "description": "Только для культурного отдыха",
-    "busy_dates": [],
+    "busy_dates": [
+      "Dec 31, 2021, 12:00:00 AM",
+      "Jan 1, 2022, 12:00:00 AM"
+    ],
     "only_long_term": false,
     "can_children": true,
     "can_pets": true

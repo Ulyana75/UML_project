@@ -1,14 +1,8 @@
 package view.impl
 
-import controller.AuthController
+import controller.*
+import controller.impl.*
 import utilities.ApartmentSystemException
-import controller.CreationController
-import controller.PriceController
-import controller.SearchController
-import controller.impl.AuthControllerImpl
-import controller.impl.CreationControllerImpl
-import controller.impl.PriceControllerImpl
-import controller.impl.SearchControllerImpl
 import objects.*
 import view.View
 import java.text.SimpleDateFormat
@@ -19,6 +13,8 @@ class CommandLineViewImpl: View {
     override val searchController: SearchController
     override val priceController: PriceController
     override val authController: AuthController
+    override val finishOrderController: FinishOrderController
+    override val bookingController: BookingController
 
     private val dateFormat = "dd.MM.yyyy"
 
@@ -27,6 +23,8 @@ class CommandLineViewImpl: View {
         searchController = SearchControllerImpl()
         priceController = PriceControllerImpl()
         authController = AuthControllerImpl()
+        finishOrderController = FinishOrderControllerImpl()
+        bookingController = BookingControllerImpl()
     }
 
     override fun enter(): Employee {
@@ -113,11 +111,13 @@ class CommandLineViewImpl: View {
         val passportNumber = readLine()!!
         val client = searchController.searchClientByPassportNumber(passportNumber)
             ?: throw ApartmentSystemException("No client with that passport number")
-        println("Введите ID квартиры:")
+        println("Введите ID квартиры. Если клиент не продает/сдает квартиру оставьте строку пустой:")
         val id = readLine()!!
-        val apartment = searchController.searchApartmentById(id)
-            ?: throw ApartmentSystemException("No apartment with that ID")
-
+        var apartment: Apartment? = null
+        if (id.isNotEmpty()) {
+            apartment = searchController.searchApartmentById(id)
+                    ?: throw ApartmentSystemException("No apartment with that ID")
+        }
         val orderId = creationController.createOrder(
             employee, client, apartment
         ).id
@@ -142,11 +142,13 @@ class CommandLineViewImpl: View {
         val passportNumber = readLine()!!
         val client = searchController.searchClientByPassportNumber(passportNumber)
             ?: throw ApartmentSystemException("No client with that passport number")
-        println("Введите ID квартиры:")
+        println("Введите ID квартиры. Если клиент не продает/сдает квартиру оставьте строку пустой:")
         val id = readLine()!!
-        val apartment = searchController.searchApartmentById(id)
-            ?: throw ApartmentSystemException("No apartment with that ID")
-
+        var apartment: Apartment? = null
+        if (id.isNotEmpty()) {
+            apartment = searchController.searchApartmentById(id)
+                    ?: throw ApartmentSystemException("No apartment with that ID")
+        }
         var servicePrice = priceController.calculateServicePrice(apartment)
         var percentToCompany = priceController.calculatePercentForCompany(apartment)
         println("Предложенная цена услуги: $servicePrice. " +
@@ -182,13 +184,15 @@ class CommandLineViewImpl: View {
         println("Choose parameters with witch you want search:\n" +
                 "0-areaMin 1-areaMax\n2-roomsMin 3-roomsMax\n" +
                 "4-priceMin 5-priceMax\n6-hasFurniture 7-repairType\n" +
-                "8-finish entering parameters")
-        var answer = 9
+                "8 - city\n" +
+                "9-finish entering parameters")
+        var answer = 10
+        var city: String? = null
         var areaMin: Float? = null; var areaMax: Float? = null
         var roomsMin: Int? = null; var roomsMax: Int? = null
         var priceMin: Float? = null; var priceMax: Float? = null
         var hasFurniture: Boolean? = null; var repairType: List<RepairType>? = null
-        while (answer != 8) {
+        while (answer != 9) {
             println("Введите номер параметра:")
             answer = readLine()!!.toInt()
             when (answer) {
@@ -225,10 +229,14 @@ class CommandLineViewImpl: View {
                             "Возможные варианты: ELITE_RENOVATION, BASIC_REPAIR, NO_REPAIR")
                     repairType = readLine()!!.split(" ").map { RepairType.valueOf(it) }
                 }
+                8 -> {
+                    println("Введите город:")
+                    city = readLine()!!
+                }
             }
         }
         val apartments = searchController.searchApartmentForSale(
-            areaMin, areaMax, roomsMin, roomsMax, priceMin, priceMax, hasFurniture, repairType
+            city, areaMin, areaMax, roomsMin, roomsMax, priceMin, priceMax, hasFurniture, repairType
         )
         println("Квартиры по вашим критериям:")
         for (apartment in apartments) {
@@ -240,16 +248,18 @@ class CommandLineViewImpl: View {
         println("Choose parameters with witch you want search:\n" +
                 "0-areaMin 1-areaMax\n2-roomsMin 3-roomsMax\n" +
                 "4-priceMin 5-priceMax\n6-hasFurniture 7-repairType\n" +
-                "8-requiredDates 9-onlyLongTerm\n10-canPets 11-canChildren" +
-                "12-finish entering parameters")
-        var answer = 13
+                "8-requiredDates 9-onlyLongTerm\n10-canPets 11-canChildren\n" +
+                "12-city\n" +
+                "13-finish entering parameters")
+        var answer = 14
+        var city: String? = null
         var areaMin: Float? = null; var areaMax: Float? = null
         var roomsMin: Int? = null; var roomsMax: Int? = null
         var priceMin: Float? = null; var priceMax: Float? = null
         var hasFurniture: Boolean? = null; var repairType: List<RepairType>? = null
         var requiredDates: List<Date>? = null; var onlyLongTerm: Boolean? = null
         var canChildren: Boolean? = null; var canPets: Boolean? = null
-        while (answer != 12) {
+        while (answer != 13) {
             println("Введите номер параметра:")
             answer = readLine()!!.toInt()
             when (answer) {
@@ -305,10 +315,14 @@ class CommandLineViewImpl: View {
                     println("В квартиру можно с животными? Напишите да/нет:")
                     canPets = readLine()!! == "да"
                 }
+                12 -> {
+                    println("Введите город:")
+                    city = readLine()!!
+                }
             }
         }
         val apartments = searchController.searchApartmentForRent(
-            areaMin, areaMax, roomsMin, roomsMax, priceMin, priceMax, hasFurniture, repairType,
+            city, areaMin, areaMax, roomsMin, roomsMax, priceMin, priceMax, hasFurniture, repairType,
             requiredDates, onlyLongTerm, canChildren, canPets
         )
         println("Квартиры по вашим критериям:")
@@ -320,14 +334,9 @@ class CommandLineViewImpl: View {
     override fun bookApartment() {
         println("Введите ID квартиры:")
         val id = readLine()!!
-        val apartment = searchController.searchApartmentById(id)
-            ?: throw ApartmentSystemException("No apartment with that ID")
-        if (apartment !is ApartmentForRent) {
-            throw ApartmentSystemException("This apartment is not for rent")
-        }
         println("Введите необходимые даты через пробел в формате $dateFormat:")
-        val dates1 = readLine()!!.split(" ").map { SimpleDateFormat(dateFormat).parse(it) }
-        apartment.book(dates1)
+        val dates = readLine()!!.split(" ").map { SimpleDateFormat(dateFormat).parse(it) }
+        bookingController.book(id, dates)
         println("Квартира успешно забронирована на выбранные даты")
     }
 
@@ -356,8 +365,7 @@ class CommandLineViewImpl: View {
     override fun finishOrder(employee: Employee) {
         println("Введите ID заказа:")
         val id = readLine()!!
-        val order = employee.activeOrders.find { it.id == id } ?: throw ApartmentSystemException("No order with that ID")
-        employee.activeOrders.remove(order)
+        finishOrderController.finishOrder(employee, id)
         println("Заказ успешно завершен")
     }
 }

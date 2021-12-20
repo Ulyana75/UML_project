@@ -7,11 +7,11 @@ import java.util.*
 class PriceControllerImpl: PriceController {
     private val random = Random()
 
-    override fun calculateServicePrice(apartment: Apartment): Float {
+    override fun calculateServicePrice(apartment: Apartment?): Float {
         return getRandomFloat(10000.toFloat(), 300000.toFloat())
     }
 
-    override fun calculatePercentForCompany(apartment: Apartment): Float {
+    override fun calculatePercentForCompany(apartment: Apartment?): Float {
         return getRandomFloat(5.toFloat(), 20.toFloat())
     }
 

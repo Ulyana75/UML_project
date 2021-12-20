@@ -20,5 +20,5 @@ data class Contract(
     val percentToCompany: Float,
 
     @SerializedName("apartment_id")
-    val apartmentId: String?
+    val apartmentId: String? = null
 )

@@ -14,10 +14,7 @@ data class Client(
     val passportNumber: String,
 
     @SerializedName("contracts")
-    val contracts: MutableList<Contract>,
-
-    @SerializedName("type")
-    val type: ClientType
+    val contracts: MutableList<Contract>
 ) {
     fun addNewContract(contract: Contract) {
         contracts.add(contract)

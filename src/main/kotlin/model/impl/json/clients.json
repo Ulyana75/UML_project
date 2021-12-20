@@ -1,16 +1,30 @@
 [
   {
     "name": "Клиент",
-    "date_of_birth": "Oct 10, 1980 12:00:00 AM",
+    "date_of_birth": "Apr 30, 1970, 12:00:00 AM",
     "passport_number": "1111",
     "contracts": [
       {
-        "date": "Dec 19, 2021 11:56:16 PM",
+        "date": "Dec 20, 2021, 5:16:49 PM",
         "client_id": "1111",
-        "employee_id": "a998c30a-5815-48fe-880d-7d2f1afc5e22",
-        "service_price": 100000.0,
-        "percent_to_company": 10.0,
+        "employee_id": "8e291692-d67c-4a00-9760-ae5979d67f69",
+        "service_price": 65000.0,
+        "percent_to_company": 7.0,
         "apartment_id": "66ee7296-1641-4b00-aa59-310cc93dce1a"
+      }
+    ]
+  },
+  {
+    "name": "Клиент 2",
+    "date_of_birth": "Nov 11, 1991, 12:00:00 AM",
+    "passport_number": "2222",
+    "contracts": [
+      {
+        "date": "Dec 20, 2021, 5:28:09 PM",
+        "client_id": "2222",
+        "employee_id": "8e291692-d67c-4a00-9760-ae5979d67f69",
+        "service_price": 164363.42,
+        "percent_to_company": 15.882372
       }
     ]
   }

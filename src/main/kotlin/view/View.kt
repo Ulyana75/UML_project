@@ -9,6 +9,8 @@ interface View {
     val searchController: SearchController
     val priceController: PriceController
     val authController: AuthController
+    val finishOrderController: FinishOrderController
+    val bookingController: BookingController
 
     fun enter(): Employee
     fun createApartmentForRent()

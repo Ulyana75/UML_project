@@ -11,7 +11,7 @@ import java.io.FileWriter
 
 class JsonClientsDatabaseImpl: ClientsDatabase {
     private val gson = Gson()
-    private val filename = "D:\\Desktop\\LABS\\5ыуь\\UML\\Project\\ApartmentSystem\\src\\main\\kotlin\\model\\impl\\json\\clients.json"
+    private val filename = "/Users/ulyanaab/ITMO/UML/src/main/kotlin/model/impl/json/clients.json"
 
     companion object {
         private var INSTANCE: JsonClientsDatabaseImpl? = null

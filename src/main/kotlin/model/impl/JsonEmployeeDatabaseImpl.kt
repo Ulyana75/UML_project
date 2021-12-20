@@ -13,7 +13,7 @@ import java.io.FileWriter
 
 class JsonEmployeeDatabaseImpl: EmployeeDatabase {
     private val gson = Gson()
-    private val filename = "D:\\Desktop\\LABS\\5ыуь\\UML\\Project\\ApartmentSystem\\src\\main\\kotlin\\model\\impl\\json\\employees.json"
+    private val filename = "/Users/ulyanaab/ITMO/UML/src/main/kotlin/model/impl/json/employees.json"
 
     companion object {
         private var INSTANCE: JsonEmployeeDatabaseImpl? = null

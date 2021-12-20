@@ -87,36 +87,26 @@ class CreationControllerImpl: CreationController {
         contracts: MutableList<Contract>,
         activeOrders: MutableList<Order>
     ): Employee {
-        if (!employeeDatabase.isAdmin(author.id)) {
-            throw ApartmentSystemException("Only admin can create employees")
-        }
+//        if (!employeeDatabase.isAdmin(author.id)) {
+//            throw ApartmentSystemException("Only admin can create employees")
+//        }
         val id = UUID.randomUUID().toString()
         val employee = Employee(id, name, dateOfBirth, passportNumber, contracts, activeOrders)
         employeeDatabase.add(employee)
         return employee
     }
 
-    override fun createOrder(
-        employee: Employee,
-        client: Client,
-        apartment: Apartment
-    ): Order {
+    override fun createOrder(employee: Employee, client: Client, apartment: Apartment?): Order {
         val id = UUID.randomUUID().toString()
-        val order = Order(id, client.passportNumber, apartment.id)
+        val order = Order(id, client.passportNumber, apartment?.id)
         employee.addNewActiveOrder(order)
         employeeDatabase.update(employee)
         return order
     }
 
-    override fun createContract(
-        client: Client,
-        employee: Employee,
-        servicePrice: Float,
-        percentToCompany: Float,
-        apartment: Apartment
-    ): Contract {
+    override fun createContract(client: Client, employee: Employee, servicePrice: Float, percentToCompany: Float, apartment: Apartment?): Contract {
         val date = Date()
-        val contract = Contract(date, client.passportNumber, employee.id, servicePrice, percentToCompany, apartment.id)
+        val contract = Contract(date, client.passportNumber, employee.id, servicePrice, percentToCompany, apartment?.id)
         employee.addNewContract(contract)
         client.addNewContract(contract)
         employeeDatabase.update(employee)
